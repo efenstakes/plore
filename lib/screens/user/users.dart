@@ -46,7 +46,7 @@ class _UsersScreenState extends State<UsersScreen> {
       // extendBodyBehindAppBar: true,
       
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
 
         children: <Widget>[
         
