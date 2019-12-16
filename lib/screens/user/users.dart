@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:plore/models/user.dart';
 import 'package:plore/screens/user/user_details.dart';
 import 'package:plore/screens/user/fav_alien_list.dart';
+import 'package:plore/screens/user/user_list.dart';
+
 
 
 class UsersScreen extends StatefulWidget {
@@ -63,6 +65,9 @@ class _UsersScreenState extends State<UsersScreen> {
                 child: RaisedButton(
                         child: Text('Get Aliens'),
                         onPressed: getUsers,
+                        shape: StadiumBorder(
+                          side: BorderSide(width: 1)
+                        ),
                     ),
               ),
               Container(
@@ -117,56 +122,4 @@ class _UsersScreenState extends State<UsersScreen> {
 
 }
 
-
-
-class UserListScreen extends StatelessWidget {
-
-  final List<User> users;
-
-  UserListScreen({this.users}) {
-    users.forEach((user)=> print(user.email));
-  }
-
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
-
-      itemCount: users.length,
-      itemBuilder: (BuildContext context, int index) {
-
-        return ListTile(
-          title: Text(users[index].name),
-          subtitle: Text(users[index].email),
-          trailing: Icon(Icons.keyboard_arrow_right),
-
-          onTap: () {
-            _seeUserDetails(user: users[index], context: context);
-          },
-        );
-
-      },
-
-      separatorBuilder: (BuildContext context, int index) {
-        return Divider( color: Colors.deepOrange );
-      },
-
-    );
-  }
-
-
-  _seeUserDetails({ User user, BuildContext context}) async {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (BuildContext context)=> UserDetails(user: user)
-      )
-    );
-  }// void _seeUserDetails(user) async { .. }
-
-
-
-
-
-}
 

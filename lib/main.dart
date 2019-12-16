@@ -30,8 +30,18 @@ class MyApp extends StatelessWidget {
           elevation: 8,
           iconTheme: IconThemeData(
             color: Colors.deepOrangeAccent[240],
-            opacity: 0.1, size: 40
+            // opacity: 0.1, 
+            size: 40
           ),
+          textTheme: TextTheme(
+            
+          title: TextStyle(
+            fontSize: 24, 
+            fontWeight: FontWeight.w800,
+            color: Colors.black
+          ),
+
+          )
         ),
 
         snackBarTheme: SnackBarThemeData(),

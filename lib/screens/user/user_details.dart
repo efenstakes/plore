@@ -3,7 +3,7 @@ import 'package:plore/models/user.dart';
 
 class UserDetails extends StatelessWidget {
 
-  User user;
+  final User user;
 
   UserDetails({this.user});
 
@@ -32,10 +32,12 @@ class UserDetails extends StatelessWidget {
               children: <Widget>[
 
                 Container(
+                  alignment: Alignment.bottomLeft,
                   height: 300, 
                   decoration: BoxDecoration( 
                     border: Border.all( 
-                      color: Colors.white, width: 3.0 
+                      color: Colors.white,
+                      width: 3.0 
                     ),
                     borderRadius: BorderRadius.all(
                       Radius.circular(30.0)
@@ -45,8 +47,14 @@ class UserDetails extends StatelessWidget {
                       image: NetworkImage('https://media.geeksforgeeks.org/wp-content/uploads/20190719161521/core.jpg')
                     ) 
                   ),
+                  child: Center(
+                    child: Text(
+                      user.name, 
+                      style: Theme.of(context).textTheme.title,
+                    ),
+                  ),
+                  // child:Text(user.name)
                 ),
-
 
 
               ],
@@ -57,14 +65,10 @@ class UserDetails extends StatelessWidget {
 
           Column(
 
-
             children: <Widget>[
 
               Text('name here'),
               Text(user.email),
-
-
-
 
             ],
 
@@ -76,6 +80,32 @@ class UserDetails extends StatelessWidget {
 
             child: Text('data'),
 
+          ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+
+            child: Column(
+              children: <Widget>[
+                Text('dates')
+              ],
+            ),
+
+          ),
+
+          Container(
+            child: Text('poll'),
+          ),
+
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+
+                Text('in row'),
+                Text('at row'),
+
+              ],
+            ),
           ),
 
           Container(
